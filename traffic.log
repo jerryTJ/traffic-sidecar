@@ -1,0 +1,28 @@
+{"level":"info","time":"2024-11-26T16:53:07+08:00","message":"request url :http://gateway.devops.com/"}
+{"level":"info","time":"2024-11-26T17:09:03+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-26T17:09:05+08:00","message":"source url :"}
+{"level":"info","time":"2024-11-26T17:09:05+08:00","message":"request url :http://gateway.devops.com/"}
+{"level":"info","time":"2024-11-26T17:10:08+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-26T17:10:30+08:00","message":"source url :"}
+{"level":"info","time":"2024-11-26T17:10:33+08:00","message":"request url :http://gateway.devops.com/"}
+{"level":"info","time":"2024-11-26T17:10:38+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-26T17:10:43+08:00","message":"source url :"}
+{"level":"info","time":"2024-11-26T17:10:48+08:00","message":"request url :http://gateway.devops.com/"}
+{"level":"info","time":"2024-11-28T16:08:33+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-28T16:08:40+08:00","message":"request url :http://gateway.devops.com/grpc"}
+{"level":"info","time":"2024-11-28T16:08:40+08:00","message":"source host :localhost:9090"}
+{"level":"info","time":"2024-11-28T16:08:40+08:00","message":"quest domain:localhost"}
+{"level":"info","time":"2024-11-28T16:08:40+08:00","message":"data domain:"}
+{"level":"info","time":"2024-11-28T16:08:40+08:00","message":"x-color:,x-chain,x-version:"}
+{"level":"info","time":"2024-11-28T16:37:31+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-28T16:37:32+08:00","message":"request url :http://gateway.devops.com/favicon.ico"}
+{"level":"info","time":"2024-11-28T16:37:32+08:00","message":"source host :localhost:8082"}
+{"level":"info","time":"2024-11-28T16:37:32+08:00","message":"quest domain:localhost"}
+{"level":"info","time":"2024-11-28T16:37:32+08:00","message":"data domain:"}
+{"level":"info","time":"2024-11-28T16:37:32+08:00","message":"x-color:,x-chain,x-version:"}
+{"level":"info","time":"2024-11-28T16:37:49+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-11-28T16:38:00+08:00","message":"request url :http://gateway.devops.com/favicon.ico"}
+{"level":"info","time":"2024-11-28T16:38:00+08:00","message":"source host :localhost:8082"}
+{"level":"info","time":"2024-11-28T16:38:00+08:00","message":"quest domain:localhost"}
+{"level":"info","time":"2024-11-28T16:38:00+08:00","message":"data domain:"}
+{"level":"info","time":"2024-11-28T16:38:00+08:00","message":"x-color:,x-chain,x-version:"}
