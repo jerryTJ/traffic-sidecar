@@ -14,7 +14,7 @@ import (
 	"google.golang.org/grpc/credentials"
 )
 
-func GetServerInfo(serverName string, addr string, timeout time.Duration) app.ServerInfo {
+func GetServerInfo(serverName string, deployVersion string, addr string, timeout time.Duration) app.ServerInfo {
 
 	// 加载客户端证书和私钥
 	clientCert, err := tls.LoadX509KeyPair("configs/ssl/client.crt", "configs/ssl/client.key")
@@ -23,7 +23,7 @@ func GetServerInfo(serverName string, addr string, timeout time.Duration) app.Se
 	}
 
 	// 加载 CA 证书
-	caCert, err := os.ReadFile("ca.crt")
+	caCert, err := os.ReadFile("configs/ssl/ca.crt")
 	if err != nil {
 		log.Printf("Failed to read CA certificate: %v", err)
 	}
@@ -50,12 +50,12 @@ func GetServerInfo(serverName string, addr string, timeout time.Duration) app.Se
 	defer conn.Close()
 
 	// 创建服务客户端
-	client := pb.NewCoroingServiceClient(conn)
+	client := pb.NewServerInfoServiceClient(conn)
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout*time.Second)
 	defer cancel()
 
-	resp, err := client.GetColoringInfo(ctx, &pb.ServerRequest{Name: serverName})
+	resp, err := client.GetColoringInfo(ctx, &pb.ServerRequest{Name: serverName, Version: deployVersion})
 	if err != nil {
 		log.Printf("Could not greet: %v", err)
 	}

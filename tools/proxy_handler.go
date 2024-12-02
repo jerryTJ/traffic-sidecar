@@ -5,15 +5,15 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 
 	"github.com/jerryTJ/sidecar/init/logger"
-	"github.com/jerryTJ/sidecar/internal/app"
 )
 
 type ProxyHandler struct {
-	TargetUrl   string
-	ServerInfos map[string]app.ServerInfo
+	TargetUrl string
+	Addr      string
 }
 
 // ServeHTTP方法，绑定DefaultHandler
@@ -32,10 +32,12 @@ func (ph *ProxyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to create request", http.StatusInternalServerError)
 		return
 	}
+	// 查询路由配置信息
 	logger.Info("source host :" + r.Host)
-	domain := strings.Split(r.Host, ":")[0]
-	logger.Info("quest domain:" + domain)
-	serverInfo := ph.ServerInfos[domain]
+	serverName := strings.Split(r.Host, ":")[0]
+	logger.Info("quest domain:" + serverName)
+	deployVersion := os.Getenv("version")
+	serverInfo := GetServerInfo(serverName, deployVersion, ph.Addr, 60)
 	logger.Info("data domain:" + serverInfo.Domain)
 	// 复制请求头
 	proxyReq.Header = r.Header

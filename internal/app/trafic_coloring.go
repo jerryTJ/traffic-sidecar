@@ -5,6 +5,10 @@ import (
 	"gorm.io/gorm"
 )
 
+const (
+	TableName = "server_info"
+)
+
 type ServerInfo struct {
 	gorm.Model
 	Name    string
@@ -29,7 +33,7 @@ type Chain struct {
 
 // TableName 方法指定表名
 func (ServerInfo) TableName() string {
-	return "server_info"
+	return TableName
 }
 func (c *ServerInfo) QueryServerInfos(cache map[string]ServerInfo) (serverInfos map[string]ServerInfo) {
 	if cache == nil {

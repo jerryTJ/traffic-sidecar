@@ -6,31 +6,16 @@ import (
 	"strings"
 
 	"github.com/jerryTJ/sidecar/cmd"
-	"github.com/jerryTJ/sidecar/init/db"
 	"github.com/jerryTJ/sidecar/init/logger"
-	"github.com/jerryTJ/sidecar/internal/app"
 	"github.com/jerryTJ/sidecar/tools"
-	"github.com/robfig/cron/v3"
 	"github.com/rs/zerolog"
 )
 
 func main() {
 	cmd.Execute()
-	db.Init(cmd.DB_USER, cmd.DB_PWD, cmd.DB_URL, cmd.DB_NAME)
 	logger.Init(cmd.LoggerFile, zerolog.DebugLevel)
 
-	//cron job
-	c := cron.New()
-	duration := fmt.Sprintf("@every %dm", cmd.Duration)
-	coloringServer := app.ServerInfo{}
-
-	serverInfos := make(map[string]app.ServerInfo)
-	c.AddFunc(duration, func() {
-		serverInfos = coloringServer.QueryServerInfos(serverInfos)
-	})
-	c.Start()
-
-	handler := tools.ProxyHandler{TargetUrl: "http://gateway.devops.com", ServerInfos: serverInfos}
+	handler := tools.ProxyHandler{TargetUrl: "http://gateway.devops.com", Addr: "traffic.devops.com:10080"}
 	http.HandleFunc("/", handler.ServeHTTP)
 	// http server
 	// Read ports from environment variable
