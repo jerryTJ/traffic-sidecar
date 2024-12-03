@@ -116,3 +116,9 @@
 {"level":"info","time":"2024-12-02T17:27:24+08:00","message":"quest domain:localhost"}
 {"level":"info","time":"2024-12-02T17:27:28+08:00","message":"data domain:"}
 {"level":"info","time":"2024-12-02T17:27:34+08:00","message":"x-color:,x-chain,x-version:"}
+{"level":"info","time":"2024-12-03T17:21:34+08:00","message":"target url http://gateway.devops.com"}
+{"level":"info","time":"2024-12-03T17:21:38+08:00","message":"request url :http://gateway.devops.com/grpc"}
+{"level":"info","time":"2024-12-03T17:21:38+08:00","message":"source host :localhost:8082"}
+{"level":"info","time":"2024-12-03T17:21:38+08:00","message":"quest domain:localhost"}
+{"level":"info","time":"2024-12-03T17:21:57+08:00","message":"data domain:"}
+{"level":"info","time":"2024-12-03T17:21:59+08:00","message":"x-color:,x-chain,x-version:"}
