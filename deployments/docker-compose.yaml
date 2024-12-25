@@ -1,0 +1,39 @@
+name: nginx-openresty
+version: "3.8"
+services:
+  nginx:
+    image: openresty/openresty:alpine-fat
+    ports:
+      - "443:8043"
+    volumes:
+      - /Users/jerry/openresty/conf.d:/etc/nginx/conf.d
+    networks:
+      - networks-lua
+    configs:
+      - httpd-config
+    secrets:
+      - server-certificate
+
+  redis:
+    image: redis
+    volumes:
+      - db-data:/etc/data
+    networks:
+      - networks-lua
+
+volumes:
+  db-data:
+    driver: flocker
+    driver_opts:
+      size: "10GiB"
+
+configs:
+  httpd-config:
+    external: true
+
+secrets:
+  server-certificate:
+    external: true
+
+networks:
+  networks-lua: {}

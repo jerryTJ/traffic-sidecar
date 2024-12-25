@@ -36,7 +36,8 @@ func (ph *ProxyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	logger.Info("source host :" + r.Host)
 	serverName := strings.Split(r.Host, ":")[0]
 	logger.Info("quest domain:" + serverName)
-	deployVersion := os.Getenv("version")
+	// env from deployment
+	deployVersion := os.Getenv("DEPLOY_VERDION")
 	serverInfo := GetServerInfo(serverName, deployVersion, ph.Addr, 60)
 	logger.Info("data domain:" + serverInfo.Domain)
 	// 复制请求头
